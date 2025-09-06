@@ -21,13 +21,13 @@ try:
 
         try:
             power = nvmlDeviceGetPowerUsage(handle) / 1000
-        except NVML_ERROR_NOT_SUPPORTED:
+        except NVMLError:
             print("NVML_ERROR_NOT_SUPPORTED")
             power = None
             
         try: 
             temp = nvmlDeviceGetTemperature(handle, NVML_TEMPERATURE_GPU)
-        except NVML_ERROR_NOT_SUPPORTED:
+        except NVMLError:
             print("NVML_ERROR_NOT_SUPPORTED")
             temp = None 
 
